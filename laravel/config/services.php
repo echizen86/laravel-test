@@ -20,8 +20,8 @@ return [
 	],
 	
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain' => env('test.laravel.com'),
+        'secret' => env('330b8af8aeb24ec2114d296ea257678d-c9270c97-c2ce62b4'),
     ],
 
     'ses' => [
