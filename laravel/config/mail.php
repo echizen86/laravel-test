@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('mailgun', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('sandboxbeefd14c60914d63bae8986249531aa8.mailgun.org', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
