@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class UserController extends Controller 
 {
 
   public static function sendEmail(){
-    $text = "Email Sent";
+    $sms = new Message();
+    $sms->from = "Back-end";
+    $sms->to = "Jose";
+    $sms->text = "This is a test message";
+    $text = MailController::send($sms);
     return $text;
   }
 

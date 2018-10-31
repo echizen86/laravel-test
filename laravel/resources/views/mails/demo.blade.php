@@ -1,4 +1,4 @@
-Hello <i>{{ $demo->receiver }}</i>,
+<!-- Hello <i>{{ $demo->receiver }}</i>,
 <p>This is a demo email for testing purposes! Also, it's the HTML version.</p>
  
 <p><u>Demo object values:</u></p>
@@ -17,4 +17,7 @@ Hello <i>{{ $demo->receiver }}</i>,
  
 Thank You,
 <br/>
-<i>{{ $demo->sender }}</i>
+<i>{{ $demo->sender }}</i> -->
+
+<br />
+{{ $demo->text }}

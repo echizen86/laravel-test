@@ -22,7 +22,7 @@ Route::get('send', function() {
     return $text;
 });
 
-Route::get('mail/send', 'MailController@send');
+Route::get('mail/send', 'UserController@sendEmail');
 
 
 Route::resource('message', 'MessageController');
