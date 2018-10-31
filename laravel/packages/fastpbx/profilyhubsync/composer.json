@@ -1,0 +1,31 @@
+{
+    "version": "0.0.1",
+    "name": "fastpbx/profilehubsync",
+    "license": "proprietary",
+    "description": "ProfileHub Synchronizer",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Melo",
+            "email": "david.melo@fastpbx.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.0",
+        "illuminate/support": "5.6.*",
+        "cviebrock/laravel-elasticsearch": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "FastPBX\\ProfileHubSync\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FastPBX\\ProfileHubSync\\ProfileHubSyncProvider"
+            ]
+        }
+    }
+}

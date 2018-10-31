@@ -1,0 +1,34 @@
+debug = false
+
+logLevel = "ERROR"
+defaultEntryPoints = ["https","http"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[web]
+    address = ":8080"
+    [web.auth.basic]
+        users = ["fpbxadmin:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/"]
+
+[retry]
+
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "pbxlink.gql.fastpbx.io"
+watch = true
+exposedByDefault = false
+
+[acme]
+email = "devops@fastpbx.com"
+storage = "acme.json"
+entryPoint = "https"
+onHostRule = true
+[acme.httpChallenge]
+entryPoint = "http"
