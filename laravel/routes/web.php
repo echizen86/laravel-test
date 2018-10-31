@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,11 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('send', function() {
+    $text = UserController::sendEmail();
+    return $text;
 });
 
 
