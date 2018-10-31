@@ -42,10 +42,10 @@ class DemoEmail extends Mailable
                       [
                             'testVarOne' => '1',
                             'testVarTwo' => '2',
-                      ])
-                      ->attach(public_path('/images').'/demo.jpg', [
-                              'as' => 'demo.jpg',
-                              'mime' => 'image/jpeg',
                       ]);
+                    //   ->attach(public_path('/images').'/demo.jpg', [
+                    //           'as' => 'demo.jpg',
+                    //           'mime' => 'image/jpeg',
+                    //   ]);
     }
 }

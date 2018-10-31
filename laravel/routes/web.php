@@ -22,6 +22,8 @@ Route::get('send', function() {
     return $text;
 });
 
+Route::get('mail/send', 'MailController@send');
+
 
 Route::resource('message', 'MessageController');
 Route::resource('user', 'UserController');
