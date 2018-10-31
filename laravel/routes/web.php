@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('message', 'MessageController');
+Route::resource('user', 'UserController');
+Route::resource('mailconfig', 'MailConfigController');
+Route::resource('messageuser', 'MessageUserController');
