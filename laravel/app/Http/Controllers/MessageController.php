@@ -3,10 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\MessageService;
 
-class MessageController extends Controller 
+
+class MessageController extends Controller
 {
+  /**
+   * Received an email with a REST Request
+   * from a Mailgun
+   */
+  public static function recievedMailREST(Request $request)
+  { 
+    $messageService = new MessageService();
+    return $messageService->receivedMessageREST($request);
+  }
 
+  /**
+   * Received an email with a array in the body
+   * from GraphQL
+   */
+  public static function recievedMailGQL($message)
+  {
+    $messageService = new MessageService();
+    return $messageService->receivedMessageGQL($message);
+  }
   /**
    * Display a listing of the resource.
    *
@@ -14,7 +34,7 @@ class MessageController extends Controller
    */
   public function index()
   {
-    
+
   }
 
   /**
@@ -24,7 +44,7 @@ class MessageController extends Controller
    */
   public function create()
   {
-    
+
   }
 
   /**
@@ -34,7 +54,7 @@ class MessageController extends Controller
    */
   public function store(Request $request)
   {
-    
+
   }
 
   /**
@@ -45,7 +65,7 @@ class MessageController extends Controller
    */
   public function show($id)
   {
-    
+
   }
 
   /**
@@ -56,7 +76,7 @@ class MessageController extends Controller
    */
   public function edit($id)
   {
-    
+
   }
 
   /**
@@ -67,7 +87,7 @@ class MessageController extends Controller
    */
   public function update($id)
   {
-    
+
   }
 
   /**
@@ -78,9 +98,9 @@ class MessageController extends Controller
    */
   public function destroy($id)
   {
-    
+
   }
-  
+
 }
 
 ?>

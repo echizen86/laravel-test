@@ -96,6 +96,7 @@ return [
             ],
             'mutation' => [
                 'UpdateProfileMutation' => App\API\Mutation\UpdateProfileMutation::class,
+                'MessageMutation' => App\API\Mutation\MessageMutation::class,
             ],
             'middleware' => ['jwt'],
             'method' => ['get', 'post'],
@@ -103,9 +104,11 @@ return [
         'public' => [
             'query' => [
                 'IsUser' => App\API\Query\IsUser::class,
+                'Message' => App\API\Query\Message::class,
             ],
             'mutation' => [
                 'RegisterUserMutation' => App\API\Mutation\RegisterUserMutation::class,
+                'MessageMutation' => App\API\Mutation\MessageMutation::class,
             ],
             'middleware' => []
         ]
@@ -125,9 +128,11 @@ return [
         /* Input Types */
         'RegisterUserInput'=> App\API\Input\RegisterUserInput::class,
         'UpdateProfileInput'=> App\API\Input\UpdateProfileInput::class,
+        'MessageInput'=> App\API\Input\MessageInput::class,
 
         /* Types */
         'User'              => App\API\Type\UserType::class,
+        'Message'              => App\API\Type\MessageType::class,
 
     ],
 

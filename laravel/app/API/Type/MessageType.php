@@ -7,14 +7,14 @@ use Rebing\GraphQL\Support\Type as GraphQLType;
 use App\API\Type\DateTimeType as Timestamp;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 
-class UserType extends GraphQLType
+class MessageType extends GraphQLType
 {
     /**
      * @var array
      */
     protected $attributes = [
-        'name' => 'User',
-        'description' => 'A user',
+        'name'          => 'Message',
+        'description'   => 'A message',
     ];
 
     /**
@@ -26,27 +26,16 @@ class UserType extends GraphQLType
             'id' => [
                 'type' => Type::nonNull(Type::string())
             ],
-            'messages' => [
-                'type' => Type::listOf(GraphQL::type('Message')),
-                'description' => 'The user messages'
-            ],
-            'email' => [
-                'type' => Type::string(),
-                'description' => 'User Email'
-            ],
-            'sub' => [
+            'user_id' => [
                 'type' => Type::string()
             ],
-            'first_name' => [
+            'to' => [
                 'type' => Type::string()
             ],
-            'last_name' => [
+            'from' => [
                 'type' => Type::string()
             ],
-            'isRegistered' => [
-                'type' => Type::boolean()
-            ],
-            'nick_name' => [
+            'text' => [
                 'type' => Type::string()
             ],
             'created_at' => [
@@ -57,5 +46,4 @@ class UserType extends GraphQLType
             ],
         ];
     }
-
 }

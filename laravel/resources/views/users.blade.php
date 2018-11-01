@@ -5,8 +5,8 @@
 			{!! Form::text('id') !!}
 		</li>
 		<li>
-			{!! Form::label('mail_id', 'Mail_id:') !!}
-			{!! Form::text('mail_id') !!}
+			{!! Form::label('email', 'Email:') !!}
+			{!! Form::text('email') !!}
 		</li>
 		<li>
 			{!! Form::label('sub', 'Sub:') !!}
@@ -15,10 +15,6 @@
 		<li>
 			{!! Form::label('isRegistered', 'IsRegistered:') !!}
 			{!! Form::text('isRegistered') !!}
-		</li>
-		<li>
-			{!! Form::label('email', 'Email:') !!}
-			{!! Form::text('email') !!}
 		</li>
 		<li>
 			{!! Form::label('first_name', 'First_name:') !!}

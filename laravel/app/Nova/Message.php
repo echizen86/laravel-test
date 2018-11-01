@@ -10,14 +10,14 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class Message extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\\Models\\User';
+    public static $model = 'App\\Models\\Message';
 
     /**
      * Get the value that should be displayed to represent the resource.
@@ -26,7 +26,7 @@ class User extends Resource
      */
     public function title()
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return $this->to . ' ' . $this->from;
     }
 
     /**
@@ -48,11 +48,9 @@ class User extends Resource
     {
         return [
             ID::make()->hideFromIndex(),
-            Text::make('First Name','first_name'),
-            Text::make('Last Name','last_name'),
-            Text::make('Auth0 Subject','sub')->hideFromIndex(),
-            Text::make('Email Address','email'),
-            Text::make('Nick Name','nick_name'),
+            Text::make('To','to'),
+            Text::make('From','from'),
+            Text::make('Text','text')
         ];
     }
 

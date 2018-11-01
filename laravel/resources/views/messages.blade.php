@@ -5,10 +5,6 @@
 			{!! Form::text('id') !!}
 		</li>
 		<li>
-			{!! Form::label('user_id', 'User_id:') !!}
-			{!! Form::text('user_id') !!}
-		</li>
-		<li>
 			{!! Form::label('to', 'To:') !!}
 			{!! Form::text('to') !!}
 		</li>

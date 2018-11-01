@@ -27,7 +27,7 @@
     "fastpbx/profilehubsync": "*",
     "fideloper/proxy": "^4.0",
     "gears/class-finder": "^1.0",
-    "guzzlehttp/guzzle": "^6.3",
+    "guzzlehttp/guzzle": "~6.0",
     "infinety-es/nova-filemanager": "^1.1",
     "laravel-notification-channels/onesignal": "^1.2",
     "laravel/framework": "5.6.*",

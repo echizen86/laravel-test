@@ -18,34 +18,22 @@ class RegisterUserInput extends GraphQLType {
         return [
             'first_name' => [
                 'name' => 'first_name',
-                'type' => Type::nonNull(Type::string())
+                'type' => Type::string()
             ],
             'last_name' => [
                 'name' => 'last_name',
-                'type' => Type::nonNull(Type::string())
-            ],
-            'company_name' => [
-                'name' => 'company_name',
-                'type' => Type::nonNull(Type::string())
-            ],
-            'player_id' => [
-                'name' => 'player_id',
                 'type' => Type::string()
             ],
-            'platform' => [
-                'name' => 'platform',
+            'mail_id' => [
+                'name' => 'mail_id',
                 'type' => Type::string()
             ],
-            'device_model' => [
-                'name' => 'device_model',
+            'email' => [
+                'name' => 'email',
                 'type' => Type::string()
             ],
-            'device_os' => [
-                'name' => 'device_os',
-                'type' => Type::string()
-            ],
-            'time_zone' => [
-                'name' => 'time_zone',
+            'nick_name' => [
+                'name' => 'nick_name',
                 'type' => Type::string()
             ]
         ];

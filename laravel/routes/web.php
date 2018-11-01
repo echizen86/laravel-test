@@ -1,7 +1,6 @@
 <?php
-
-use App\Http\Controllers\UserController;
-
+use Symfony\Component\HttpFoundation\Request;
+use App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,16 +15,15 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('send', function(Request $request) {
+//     $text = MessageController::sendMail($request);
+//     return $text;
+// });
 
-Route::get('send', function() {
-    $text = UserController::sendEmail();
-    return $text;
-});
+Route::get('mail/received', 'MessageController@recievedMailGQL');
+Route::get('mail/receivedREST', 'MessageController@recievedMailREST');
 
-Route::get('mail/send', 'UserController@sendEmail');
+Auth::routes();
 
-
-Route::resource('message', 'MessageController');
 Route::resource('user', 'UserController');
-Route::resource('mailconfig', 'MailConfigController');
-Route::resource('messageuser', 'MessageUserController');
+Route::resource('message', 'MessageController');
