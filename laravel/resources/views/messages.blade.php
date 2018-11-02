@@ -13,6 +13,10 @@
 			{!! Form::text('from') !!}
 		</li>
 		<li>
+			{!! Form::label('subject', 'Subject:') !!}
+			{!! Form::text('subject') !!}
+		</li>
+		<li>
 			{!! Form::label('text', 'Text:') !!}
 			{!! Form::text('text') !!}
 		</li>

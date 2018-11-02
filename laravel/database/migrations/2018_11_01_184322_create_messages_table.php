@@ -11,6 +11,7 @@ class CreateMessagesTable extends Migration {
 			$table->string('id', 36)->unique();
 			$table->string('to');
 			$table->string('from');
+			$table->string('subject');
 			$table->string('text');
 			$table->timestamps();
 		});

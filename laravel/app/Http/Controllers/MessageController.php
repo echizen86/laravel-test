@@ -4,22 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\MessageService;
+use App\Models\Message;
+use App\Services\UserService;
 
 
 class MessageController extends Controller
 {
   /**
    * Received an email with a REST Request
-   * from a Mailgun
+   * from a Mailgun, with JSON format
    */
   public static function recievedMailREST(Request $request)
-  { 
+  {
     $messageService = new MessageService();
     return $messageService->receivedMessageREST($request);
   }
 
   /**
-   * Received an email with a array in the body
+   * Received an email with an array in the body
    * from GraphQL
    */
   public static function recievedMailGQL($message)
@@ -27,6 +29,16 @@ class MessageController extends Controller
     $messageService = new MessageService();
     return $messageService->receivedMessageGQL($message);
   }
+
+  /**
+   * test for now!
+   */
+  public static function send()
+  {
+    $send = new Message();
+    return $send->send();
+  }
+
   /**
    * Display a listing of the resource.
    *

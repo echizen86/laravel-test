@@ -1,4 +1,4 @@
-Hello {{ $demo->receiver }},
+<!-- Hello {{ $demo->receiver }},
 This is a demo email for testing purposes! Also, it's the HTML version.
  
 Demo object values:
@@ -12,4 +12,4 @@ testVarOne: {{ $testVarOne }}
 testVarOne: {{ $testVarOne }}
  
 Thank You,
-{{ $demo->sender }}
+{{ $demo->sender }} -->

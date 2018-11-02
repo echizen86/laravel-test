@@ -4,11 +4,7 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 use App\Models\Message;
-use App\Models\User;
-use SebastianBergmann\Environment\Console;
-use GuzzleHttp\Client;
-
-
+use App\Services\UserService;
 
 class MessageService
 {
@@ -24,6 +20,11 @@ class MessageService
         return $text;
     }
 
+    /**
+     * The JSON in the request is the header of email,
+     * to get a body email, is necessary a petition to
+     * api of mailgun which return a JSON with complete email
+     */
     public function receivedMessageREST($message)
     {
         $sms = new Message();
@@ -31,18 +32,32 @@ class MessageService
         $sms->to = $obj['message']['headers']['to'];
         $sms->from = $obj['message']['headers']['from'];
 
-        $client = new Client();
-        $res = $client->request('GET', '' . $obj['storage']['url'] . '', [
-            'auth' => ['api', '330b8af8aeb24ec2114d296ea257678d-c9270c97-c2ce62b4']
-        ]);
+        // In the subject come the action to do
+        $sms->subject = $obj['message']['headers']['subject'];
 
-        $json = json_decode($res->getBody()->getContents(), true);
-        
+        $url = $obj['storage']['url'];
+
+        // get a complete email
+        $email = MailService::getEmail($url);
+        $json = json_decode($email->getBody()->getContents(), true);
+        // get a body from an email
         $sms->text = $json['body-html'];
 
-        $sms->saveMessage($sms);
+        $result = 'ERROR';
 
-        return $sms;
+        // From a subject text it call a appropriate action
+        if ($sms->subject == "NAUTA") {
+            $result = $sms->nauta($sms);
+        }
+        if ($sms->subject == "REGISTER") {
+            $user = new UserService();
+            $result = $user->registerUser($sms);
+        }
+        if ($sms->subject == "MESSAGE") {
+            $result = $sms->message($sms);
+        }
+
+        return $result;
     }
 
 }

@@ -23,6 +23,8 @@ Route::get('/', function () {
 Route::get('mail/received', 'MessageController@recievedMailGQL');
 Route::get('mail/receivedREST', 'MessageController@recievedMailREST');
 
+Route::get('mail/send', 'MessageController@send');
+
 Auth::routes();
 
 Route::resource('user', 'UserController');
