@@ -28,6 +28,8 @@ class MessageService
     public function receivedMessageREST($message)
     {
         $sms = new Message();
+        $user = new UserService();
+        
         $obj = $message->all();
         $sms->to = $obj['message']['headers']['to'];
         $sms->from = $obj['message']['headers']['from'];
@@ -50,11 +52,13 @@ class MessageService
             $result = $sms->nauta($sms);
         }
         if ($sms->subject == "REGISTER") {
-            $user = new UserService();
             $result = $user->registerUser($sms);
         }
         if ($sms->subject == "MESSAGE") {
             $result = $sms->message($sms);
+        }
+        if ($sms->subject == "UPDATE") {
+            $result = $user->updateUser($sms);
         }
 
         return $result;

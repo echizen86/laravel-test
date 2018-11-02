@@ -48,9 +48,9 @@ class Message extends Model
     public function send()
     {
         $this->to = 'josecastillo.go@outlook.com';
-        $this->from = 'jose@gmail.com';
-        $this->text = 'joseito';
-        $this->subject = 'REGISTER';
+        $this->from = 'carlos@gmail.com';
+        $this->text = '{"first_name":"","last_name":"","nick_name":"carlitos"}';
+        $this->subject = 'UPDATE';
         Mail::to($this->to)->send(new DemoEmail($this));
         return $this;
     }

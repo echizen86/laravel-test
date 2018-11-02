@@ -50,6 +50,7 @@ class Message extends Resource
             ID::make()->hideFromIndex(),
             Text::make('To','to'),
             Text::make('From','from'),
+            Text::make('Action','subject'),
             Text::make('Text','text')
         ];
     }

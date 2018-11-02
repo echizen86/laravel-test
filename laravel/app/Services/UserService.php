@@ -28,18 +28,23 @@ class UserService
     }
 
     public function updateUser($message)
-    {  
-        $json = json_encode($message->text);
+    {
+        $text = stripslashes(html_entity_decode($message->text));
 
-        $fn = $json['first_name'];
-        $ln = $json['last_name'];
+        $json = json_decode($text, true);
+        // $json = $message->text;
+
+        $fn = $json["first_name"];
+        $ln = $json["last_name"];
+        $nn = ["nick_name"];
 
         $user = new User();
         // check if that email exist in database
         $isRegistered = $user::where('email', $message->from)->first();
-        if($isRegistered){
+        if ($isRegistered) {
             $isRegistered->first_name = $fn;
             $isRegistered->last_name = $ln;
+            $isRegistered->nick_name = $nn;
             $isRegistered->save();
         }
         return $isRegistered;
