@@ -14,7 +14,7 @@ class MessageController extends Controller
    * Received an email with a REST Request
    * from a Mailgun, with JSON format
    */
-  public static function recievedMailREST(Request $request)
+  public static function recievedMail(Request $request)
   {
     $messageService = new MessageService();
     return $messageService->receivedMessage($request);

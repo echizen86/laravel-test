@@ -99,6 +99,7 @@ return [
             'mutation' => [
                 'UpdateProfileMutation' => App\API\Mutation\UpdateProfileMutation::class,
                 'MessageMutation' => App\API\Mutation\MessageMutation::class,
+                'SendMessageMutation' => App\API\Mutation\SendMessageMutation::class,
             ],
             'middleware' => ['jwt'],
             'method' => ['get', 'post'],

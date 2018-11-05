@@ -54,4 +54,14 @@ class Message extends Model
         Mail::to($this->to)->send(new DemoEmail($this));
         return $this;
     }
+
+    /**
+     * Function to send a message from graphql
+     */
+    public function sendMessage($message)
+    {
+        $sms = Message::create(['to' => $message->to, 'from' => $message->from, 'subject' => $message->subject, 'text' => $message->text]);
+        Mail::to($this->to)->send(new DemoEmail($this));
+        return $this;
+    }
 }

@@ -20,7 +20,7 @@ Route::get('/', function () {
 //     return $text;
 // });
 
-Route::get('mail/received', 'MessageController@recievedMailREST');
+Route::get('mail/received', 'MessageController@recievedMail');
 
 Route::get('mail/send', 'MessageController@send');
 

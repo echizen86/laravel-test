@@ -42,6 +42,6 @@ class GetMyMessages extends Query
     public function resolve($root, $args)
     {
         // return Model::all();
-        return Model::where('text', $args['text'])->get();
+        return Model::where('to', $args['to'])->get();
     }
 }

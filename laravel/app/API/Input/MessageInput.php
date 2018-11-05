@@ -24,6 +24,10 @@ class MessageInput extends GraphQLType
                 'name' => 'from',
                 'type' => Type::string()
             ],
+            'subject' => [
+                'name' => 'subject',
+                'type' => Type::string()
+            ],
             'text' => [
                 'name' => 'text',
                 'type' => Type::string()
