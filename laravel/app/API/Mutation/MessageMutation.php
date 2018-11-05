@@ -33,6 +33,7 @@ class MessageMutation extends Mutation
 
     public function resolve($root, $args)
     {
+        
         return MessageController::recievedMailGQL($args);
     }
 }

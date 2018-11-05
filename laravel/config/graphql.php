@@ -93,6 +93,8 @@ return [
         'default' => [
             'query' => [
                 'GetMyProfile' => App\API\Query\GetMyProfile::class,
+                'GetMessage' => App\API\Query\Message::class,
+                'GetMyMessages' => App\API\Query\GetMyMessages::class,
             ],
             'mutation' => [
                 'UpdateProfileMutation' => App\API\Mutation\UpdateProfileMutation::class,

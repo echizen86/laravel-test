@@ -8,24 +8,12 @@ use App\Services\UserService;
 
 class MessageService
 {
-    public function receivedMessageGQL($message)
-    {
-        try {
-            $sms = new Message();
-            $sms->saveMessage($message);
-        } catch (Throwable $e) {
-            return false;
-        }
-        $text = 'Success';
-        return $text;
-    }
-
     /**
      * The JSON in the request is the header of email,
      * to get a body email, is necessary a petition to
      * api of mailgun which return a JSON with complete email
      */
-    public function receivedMessageREST($message)
+    public function receivedMessage($message)
     {
         $sms = new Message();
         $user = new UserService();
@@ -47,7 +35,7 @@ class MessageService
 
         $result = 'ERROR';
 
-        // From a subject text it call a appropriate action
+        // From a subject text it call an appropriate action
         if ($sms->subject == "NAUTA") {
             $result = $sms->nauta($sms);
         }

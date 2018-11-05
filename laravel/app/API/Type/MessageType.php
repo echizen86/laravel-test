@@ -13,8 +13,8 @@ class MessageType extends GraphQLType
      * @var array
      */
     protected $attributes = [
-        'name'          => 'Message',
-        'description'   => 'A message',
+        'name' => 'Message',
+        'description' => 'A message',
     ];
 
     /**
@@ -26,13 +26,13 @@ class MessageType extends GraphQLType
             'id' => [
                 'type' => Type::nonNull(Type::string())
             ],
-            'user_id' => [
-                'type' => Type::string()
-            ],
             'to' => [
                 'type' => Type::string()
             ],
             'from' => [
+                'type' => Type::string()
+            ],
+            'subject' => [
                 'type' => Type::string()
             ],
             'text' => [

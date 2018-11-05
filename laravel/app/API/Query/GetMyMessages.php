@@ -7,12 +7,11 @@ use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\SelectFields;
 use Rebing\GraphQL\Support\Query;
-use Auth;
 
 use App\Models\Message as Model;
 
-class Message extends Query
-{
+class GetMyMessages extends Query
+{   
     public function authorize(array $args)
     {
         return true;
@@ -42,7 +41,7 @@ class Message extends Query
 
     public function resolve($root, $args)
     {
-        return Model::all();
-        // return Model::where('subject', $args['subject']);
+        // return Model::all();
+        return Model::where('text', $args['text'])->get();
     }
 }

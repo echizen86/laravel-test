@@ -17,7 +17,7 @@ class MessageController extends Controller
   public static function recievedMailREST(Request $request)
   {
     $messageService = new MessageService();
-    return $messageService->receivedMessageREST($request);
+    return $messageService->receivedMessage($request);
   }
 
   /**
